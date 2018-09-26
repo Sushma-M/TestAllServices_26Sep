@@ -7,10 +7,10 @@ package com.testallservicesforvcs.adventureworks2014;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -19,8 +19,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
- 
-import java.time.LocalDateTime;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -32,9 +32,9 @@ import com.fasterxml.jackson.annotation.JsonProperty.Access;
  */
 @Entity
 @Table(name = "`Employee`", uniqueConstraints = {
-        @UniqueConstraint(name = "`UK_550s85r2wnakc17q5diuit3q5`", columnNames = {"`LoginID`"}),
-        @UniqueConstraint(name = "`UK_ktpwii8so9uy1t5iwicaj002j`", columnNames = {"`NationalIDNumber`"}),
-        @UniqueConstraint(name = "`UK_36c8yp0q8ry0y2acrd50qjkt`", columnNames = {"`rowguid`"})})
+            @UniqueConstraint(name = "`UK_550s85r2wnakc17q5diuit3q5`", columnNames = {"`LoginID`"}),
+            @UniqueConstraint(name = "`UK_36c8yp0q8ry0y2acrd50qjkt`", columnNames = {"`rowguid`"}),
+            @UniqueConstraint(name = "`UK_ktpwii8so9uy1t5iwicaj002j`", columnNames = {"`NationalIDNumber`"})})
 public class Employee implements Serializable {
 
     private Integer businessEntityId;
@@ -53,7 +53,6 @@ public class Employee implements Serializable {
     private short sickLeaveHours;
     private boolean currentFlag;
     private String rowguid;
-     
     private LocalDateTime modifiedDate;
     private List<EmployeeDepartmentHistory> employeeDepartmentHistories;
     private List<EmployeePayHistory> employeePayHistories;
@@ -205,7 +204,8 @@ public class Employee implements Serializable {
     }
 
     @JsonInclude(Include.NON_EMPTY)
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "employee")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "employee")
+    @Cascade({CascadeType.SAVE_UPDATE, CascadeType.REMOVE})
     public List<EmployeeDepartmentHistory> getEmployeeDepartmentHistories() {
         return this.employeeDepartmentHistories;
     }
@@ -215,7 +215,8 @@ public class Employee implements Serializable {
     }
 
     @JsonInclude(Include.NON_EMPTY)
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "employee")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "employee")
+    @Cascade({CascadeType.SAVE_UPDATE, CascadeType.REMOVE})
     public List<EmployeePayHistory> getEmployeePayHistories() {
         return this.employeePayHistories;
     }
@@ -225,7 +226,8 @@ public class Employee implements Serializable {
     }
 
     @JsonInclude(Include.NON_EMPTY)
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "employee")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "employee")
+    @Cascade({CascadeType.SAVE_UPDATE, CascadeType.REMOVE})
     public List<JobCandidate> getJobCandidates() {
         return this.jobCandidates;
     }
@@ -247,4 +249,3 @@ public class Employee implements Serializable {
         return Objects.hash(getBusinessEntityId());
     }
 }
-

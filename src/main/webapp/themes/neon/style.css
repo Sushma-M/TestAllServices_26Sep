@@ -1,4 +1,4 @@
-/*START - default Theme*/
+/*START - Neon Theme*/
 .wm-app {
   /*!
  * Bootstrap v3.3.6 (http://getbootstrap.com)
@@ -4153,8 +4153,7 @@ select[multiple].wm-app .input-group-sm > .input-group-btn > .btn {
     margin-bottom: 0;
   }
 }
-.wm-app .nav-tabs.nav-justified > li > a,
-.wm-app .nav-tabs.nav-justified > li .app-menu a {
+.wm-app .nav-tabs.nav-justified > li > a {
   color: #fff;
   text-transform: uppercase;
   border-radius: 0;
@@ -4162,17 +4161,20 @@ select[multiple].wm-app .input-group-sm > .input-group-btn > .btn {
   margin-right: 0;
 }
 .wm-app .nav-tabs.nav-justified > li > a:hover,
-.wm-app .nav-tabs.nav-justified > li .app-menu a:hover,
-.wm-app .nav-tabs.nav-justified > li > a:focus,
-.wm-app .nav-tabs.nav-justified > li .app-menu a:focus {
+.wm-app .nav-tabs.nav-justified > li > a:focus {
   outline: none;
   color: #d4145a;
 }
 .wm-app .nav-tabs.nav-justified > li.active > a:hover,
-.wm-app .nav-tabs.nav-justified > li.active .app-menu a:hover,
-.wm-app .nav-tabs.nav-justified > li.active > a:focus,
-.wm-app .nav-tabs.nav-justified > li.active .app-menu a:focus {
+.wm-app .nav-tabs.nav-justified > li.active > a:focus {
   outline: none;
+}
+.wm-app .nav-tabs.nav-justified > li.app-nav-item > .dropdown > a.dropdown-toggle {
+  padding: 12px;
+  color: #fff;
+  text-transform: uppercase;
+  line-height: 1.42857143;
+  border: 1px solid transparent;
 }
 .wm-app .nav-tabs.nav-justified > li > a {
   margin-right: 0;
@@ -7043,9 +7045,7 @@ button.wm-app .close {
   background-color: #363d50;
 }
 .wm-app .nav-tabs > li > a,
-.wm-app .nav-justified > li > a,
-.wm-app .nav-tabs > li .app-menu a,
-.wm-app .nav-justified > li .app-menu a {
+.wm-app .nav-justified > li > a {
   color: #fff;
   text-transform: uppercase;
   border-radius: 0;
@@ -7054,24 +7054,24 @@ button.wm-app .close {
 }
 .wm-app .nav-tabs > li > a:hover,
 .wm-app .nav-justified > li > a:hover,
-.wm-app .nav-tabs > li .app-menu a:hover,
-.wm-app .nav-justified > li .app-menu a:hover,
 .wm-app .nav-tabs > li > a:focus,
-.wm-app .nav-justified > li > a:focus,
-.wm-app .nav-tabs > li .app-menu a:focus,
-.wm-app .nav-justified > li .app-menu a:focus {
+.wm-app .nav-justified > li > a:focus {
   outline: none;
   color: #d4145a;
 }
 .wm-app .nav-tabs > li.active > a:hover,
 .wm-app .nav-justified > li.active > a:hover,
-.wm-app .nav-tabs > li.active .app-menu a:hover,
-.wm-app .nav-justified > li.active .app-menu a:hover,
 .wm-app .nav-tabs > li.active > a:focus,
-.wm-app .nav-justified > li.active > a:focus,
-.wm-app .nav-tabs > li.active .app-menu a:focus,
-.wm-app .nav-justified > li.active .app-menu a:focus {
+.wm-app .nav-justified > li.active > a:focus {
   outline: none;
+}
+.wm-app .nav-tabs > li.app-nav-item > .dropdown > a.dropdown-toggle,
+.wm-app .nav-justified > li.app-nav-item > .dropdown > a.dropdown-toggle {
+  padding: 12px;
+  color: #fff;
+  text-transform: uppercase;
+  line-height: 1.42857143;
+  border: 1px solid transparent;
 }
 .wm-app .app-tabs,
 .wm-app .tab-body {
@@ -7104,9 +7104,6 @@ button.wm-app .close {
 .wm-app .btn.btn-xs {
   font-size: 8px;
   padding: 1px 2px;
-}
-.wm-app .btn .caret {
-  margin-left: 0.7em;
 }
 .wm-app .btn.active,
 .wm-app .btn:active {
@@ -7260,26 +7257,32 @@ button.wm-app .close {
   padding: 0 1.52em;
   border: 0;
 }
-.wm-app .app-navbar .navbar-nav li a {
+.wm-app .app-navbar .navbar-nav li a,
+.wm-app .app-navbar .navbar-nav li .app-popover-wrapper a {
   font-size: 1em;
   padding: 1.2em;
   font-weight: normal;
   text-decoration: none;
   text-transform: uppercase;
   box-shadow: inset 0px -3px 0 0px transparent;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.6);
 }
 .wm-app .app-navbar .navbar-nav li a:hover,
+.wm-app .app-navbar .navbar-nav li .app-popover-wrapper a:hover,
 .wm-app .app-navbar .navbar-nav li a:focus,
+.wm-app .app-navbar .navbar-nav li .app-popover-wrapper a:focus,
 .wm-app .app-navbar .navbar-nav li a.active,
-.wm-app .app-navbar .navbar-nav li a.app-popover-open {
+.wm-app .app-navbar .navbar-nav li .app-popover-wrapper a.active,
+.wm-app .app-navbar .navbar-nav li a.app-popover-open,
+.wm-app .app-navbar .navbar-nav li .app-popover-wrapper a.app-popover-open {
   color: #fff;
   background-color: #d4145a;
   -webkit-transition: color .3s ease;
   -o-transition: color .3s ease;
   transition: color .3s ease;
 }
-.wm-app .app-navbar .navbar-nav li a.active {
+.wm-app .app-navbar .navbar-nav li a.active,
+.wm-app .app-navbar .navbar-nav li .app-popover-wrapper a.active {
   color: #fff;
   background-color: #d4145a;
 }
@@ -7287,28 +7290,37 @@ button.wm-app .close {
   margin: 0;
   background-color: #282d39;
 }
-.wm-app .app-navbar .navbar-nav li > .dropdown .dropdown-menu a {
+.wm-app .app-navbar .navbar-nav li > .dropdown .dropdown-menu a,
+.wm-app .app-navbar .navbar-nav li > .dropdown .dropdown-menu .app-popover-wrapper a {
   color: #fff;
   padding: 1em;
   font-size: 1em;
   text-transform: initial;
 }
-.wm-app .app-navbar .navbar-nav li > .dropdown .dropdown-menu a:hover {
+.wm-app .app-navbar .navbar-nav li > .dropdown .dropdown-menu a:hover,
+.wm-app .app-navbar .navbar-nav li > .dropdown .dropdown-menu .app-popover-wrapper a:hover {
   background-color: #d4145a;
 }
-.wm-app .app-navbar .navbar-nav .app-nav-item > .dropdown a.dropdown-toggle {
+.wm-app .app-navbar .navbar-nav .app-nav-item > .dropdown a.dropdown-toggle,
+.wm-app .app-navbar .navbar-nav .app-nav-item .app-popover-wrapper a.dropdown-toggle,
+.wm-app .app-navbar .navbar-nav .app-nav-item > .dropdown a,
+.wm-app .app-navbar .navbar-nav .app-nav-item .app-popover-wrapper a {
   padding: 1.2em;
 }
-.wm-app .app-navbar .navbar-nav .app-nav-item > .dropdown .dropdown-menu li > a {
+.wm-app .app-navbar .navbar-nav .app-nav-item > .dropdown .dropdown-menu li > a,
+.wm-app .app-navbar .navbar-nav .app-nav-item .app-popover-wrapper .dropdown-menu li > a {
   background-color: #363d50;
 }
-.wm-app .app-navbar .navbar-nav .app-nav-item > .dropdown .dropdown-menu li > a:hover {
+.wm-app .app-navbar .navbar-nav .app-nav-item > .dropdown .dropdown-menu li > a:hover,
+.wm-app .app-navbar .navbar-nav .app-nav-item .app-popover-wrapper .dropdown-menu li > a:hover {
   background-color: rgba(0, 0, 0, 0.03);
 }
-.wm-app .app-navbar .navbar-nav .app-nav-item > .dropdown.open .dropdown-toggle {
+.wm-app .app-navbar .navbar-nav .app-nav-item > .dropdown.open .dropdown-toggle,
+.wm-app .app-navbar .navbar-nav .app-nav-item .app-popover-wrapper.open .dropdown-toggle {
   background-color: #d4145a;
 }
-.wm-app .app-navbar.navbar-inverse .app-nav-item a {
+.wm-app .app-navbar.navbar-inverse li a,
+.wm-app .app-navbar.navbar-inverse li .app-popover-wrapper a {
   color: #282d39;
 }
 .wm-app .app-navbar.navbar-inverse .app-nav-item > .dropdown a.dropdown-menu li > a {
@@ -7332,34 +7344,46 @@ button.wm-app .close {
 .wm-app .app-nav.nav-pills .app-nav-item a,
 .wm-app .app-nav.nav-stacked .app-nav-item a,
 .wm-app .app-nav.nav-pills .app-nav-item .app-menu,
-.wm-app .app-nav.nav-stacked .app-nav-item .app-menu {
+.wm-app .app-nav.nav-stacked .app-nav-item .app-menu,
+.wm-app .app-nav.nav-pills .app-nav-item .app-popover-wrapper a,
+.wm-app .app-nav.nav-stacked .app-nav-item .app-popover-wrapper a {
   border-radius: 2px;
 }
 .wm-app .app-nav.nav-pills .app-nav-item a .dropdown-toggle,
 .wm-app .app-nav.nav-stacked .app-nav-item a .dropdown-toggle,
 .wm-app .app-nav.nav-pills .app-nav-item .app-menu .dropdown-toggle,
-.wm-app .app-nav.nav-stacked .app-nav-item .app-menu .dropdown-toggle {
+.wm-app .app-nav.nav-stacked .app-nav-item .app-menu .dropdown-toggle,
+.wm-app .app-nav.nav-pills .app-nav-item .app-popover-wrapper a .dropdown-toggle,
+.wm-app .app-nav.nav-stacked .app-nav-item .app-popover-wrapper a .dropdown-toggle {
   border-radius: 2px;
   padding: 12px;
 }
 .wm-app .app-nav.nav-pills .app-nav-item a.open .dropdown-toggle,
 .wm-app .app-nav.nav-stacked .app-nav-item a.open .dropdown-toggle,
 .wm-app .app-nav.nav-pills .app-nav-item .app-menu.open .dropdown-toggle,
-.wm-app .app-nav.nav-stacked .app-nav-item .app-menu.open .dropdown-toggle {
+.wm-app .app-nav.nav-stacked .app-nav-item .app-menu.open .dropdown-toggle,
+.wm-app .app-nav.nav-pills .app-nav-item .app-popover-wrapper a.open .dropdown-toggle,
+.wm-app .app-nav.nav-stacked .app-nav-item .app-popover-wrapper a.open .dropdown-toggle {
   color: #fff;
 }
 .wm-app .app-nav.nav-pills .app-nav-item a:hover,
 .wm-app .app-nav.nav-stacked .app-nav-item a:hover,
 .wm-app .app-nav.nav-pills .app-nav-item .app-menu:hover,
 .wm-app .app-nav.nav-stacked .app-nav-item .app-menu:hover,
+.wm-app .app-nav.nav-pills .app-nav-item .app-popover-wrapper a:hover,
+.wm-app .app-nav.nav-stacked .app-nav-item .app-popover-wrapper a:hover,
 .wm-app .app-nav.nav-pills .app-nav-item a .dropdown-toggle:hover,
 .wm-app .app-nav.nav-stacked .app-nav-item a .dropdown-toggle:hover,
 .wm-app .app-nav.nav-pills .app-nav-item .app-menu .dropdown-toggle:hover,
 .wm-app .app-nav.nav-stacked .app-nav-item .app-menu .dropdown-toggle:hover,
+.wm-app .app-nav.nav-pills .app-nav-item .app-popover-wrapper a .dropdown-toggle:hover,
+.wm-app .app-nav.nav-stacked .app-nav-item .app-popover-wrapper a .dropdown-toggle:hover,
 .wm-app .app-nav.nav-pills .app-nav-item a .dropdown-toggle:focus,
 .wm-app .app-nav.nav-stacked .app-nav-item a .dropdown-toggle:focus,
 .wm-app .app-nav.nav-pills .app-nav-item .app-menu .dropdown-toggle:focus,
-.wm-app .app-nav.nav-stacked .app-nav-item .app-menu .dropdown-toggle:focus {
+.wm-app .app-nav.nav-stacked .app-nav-item .app-menu .dropdown-toggle:focus,
+.wm-app .app-nav.nav-pills .app-nav-item .app-popover-wrapper a .dropdown-toggle:focus,
+.wm-app .app-nav.nav-stacked .app-nav-item .app-popover-wrapper a .dropdown-toggle:focus {
   color: #fff;
   background-color: rgba(0, 0, 0, 0.1);
 }
@@ -7608,11 +7632,14 @@ button.wm-app .close {
 .wm-app .form-group .control-label.text-danger {
   color: #ee5f5b;
 }
-.wm-app .form-group .ng-touched.ng-invalid {
+.wm-app .form-group .ng-touched.ng-invalid .form-control {
   border-color: transparent;
   background-image: none;
   border: 1px solid #ee5f5b;
   outline: none;
+}
+.wm-app .input-group-addon.colorpicker-container:last-child {
+  border-left: 1px solid #363d50;
 }
 .wm-app .control-label {
   font-weight: normal;
@@ -8165,10 +8192,6 @@ button.wm-app .close {
   border-radius: 2px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
   margin-bottom: 1em;
-}
-.wm-app .panel .panel-heading .panel-title .heading,
-.wm-app .card .panel-heading .panel-title .heading {
-  font-size: 1.125em;
 }
 .wm-app .panel .panel-heading .panel-title .description,
 .wm-app .card .panel-heading .panel-title .description {
@@ -8873,10 +8896,6 @@ button.wm-app .close {
 }
 .wm-app .app-colorpicker.input-group {
   width: 13em;
-}
-.wm-app .app-colorpicker .input-group-addon {
-  padding: 0.833em 1.333em;
-  background-color: #ffffff;
 }
 .wm-app .popover {
   padding: 0;

@@ -7,10 +7,10 @@ package com.testallservicesforvcs.adventureworks2014;
 
 import java.io.Serializable;
 import java.sql.Time;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -18,11 +18,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.PostPersist;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
- 
-import java.time.LocalDateTime;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -32,15 +33,14 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
  */
 @Entity
 @Table(name = "`Shift`", uniqueConstraints = {
-        @UniqueConstraint(name = "`UK_t5p380tn7qe2ynvkpp2iuw164`", columnNames = {"`Name`"}),
-        @UniqueConstraint(name = "`UK_d8auwq05um6bp8uwxgntu5i0o`", columnNames = {"`StartTime`", "`EndTime`"})})
+            @UniqueConstraint(name = "`UK_d8auwq05um6bp8uwxgntu5i0o`", columnNames = {"`StartTime`", "`EndTime`"}),
+            @UniqueConstraint(name = "`UK_t5p380tn7qe2ynvkpp2iuw164`", columnNames = {"`Name`"})})
 public class Shift implements Serializable {
 
     private Short shiftId;
     private String name;
     private Time startTime;
     private Time endTime;
-     
     private LocalDateTime modifiedDate;
     private List<EmployeeDepartmentHistory> employeeDepartmentHistories;
 
@@ -92,13 +92,21 @@ public class Shift implements Serializable {
     }
 
     @JsonInclude(Include.NON_EMPTY)
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "shift")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "shift")
+    @Cascade({CascadeType.SAVE_UPDATE, CascadeType.REMOVE})
     public List<EmployeeDepartmentHistory> getEmployeeDepartmentHistories() {
         return this.employeeDepartmentHistories;
     }
 
     public void setEmployeeDepartmentHistories(List<EmployeeDepartmentHistory> employeeDepartmentHistories) {
         this.employeeDepartmentHistories = employeeDepartmentHistories;
+    }
+
+    @PostPersist
+    public void onPostPersist() {
+        if(employeeDepartmentHistories != null) {
+            employeeDepartmentHistories.forEach(_employeeDepartmentHistory -> _employeeDepartmentHistory.setShift(this));
+        }
     }
 
     @Override
@@ -114,4 +122,3 @@ public class Shift implements Serializable {
         return Objects.hash(getShiftId());
     }
 }
-

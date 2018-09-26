@@ -27,13 +27,6 @@
             </resource>
             <resource>
                 <filtering>true</filtering>
-                <directory>services/FeedService/src</directory>
-                <excludes>
-                    <exclude>**/*.java</exclude>
-                </excludes>
-            </resource>
-            <resource>
-                <filtering>true</filtering>
                 <directory>services/FileService/src</directory>
                 <excludes>
                     <exclude>**/*.java</exclude>
@@ -157,7 +150,6 @@
                             <sources>
                                 <source>services/AdventureWorks2014/src</source>
                                 <source>services/CountryInfoService/src</source>
-                                <source>services/FeedService/src</source>
                                 <source>services/FileService/src</source>
                                 <source>services/MyJavaService/src</source>
                                 <source>services/googleapis/src</source>

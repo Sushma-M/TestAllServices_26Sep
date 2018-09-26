@@ -1,5 +1,6 @@
 [ {
   "name" : "neon",
-  "version" : "2.2",
-  "artifactType" : "THEME"
+  "version" : "2.6",
+  "artifactType" : "THEME",
+  "artifactDependencyList" : null
 } ]
